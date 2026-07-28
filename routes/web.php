@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,6 +29,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return inertia('Dashboard');
     })->name('dashboard');
+
+    Route::get('/profile', function () {
+        return inertia('Profile');
+    })->name('profile');
+
+    Route::put('/profile', [ProfileController::class, 'updateProfile'])
+        ->name('profile.update');
+
+    Route::put('/profile/password', [ProfileController::class, 'updatePassword'])
+        ->name('profile.password.update');
 
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout');
