@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,15 @@ Route::middleware('auth')->group(function () {
 
     Route::put('/profile/password', [ProfileController::class, 'updatePassword'])
         ->name('profile.password.update');
+        
+    Route::resource('categories', CategoryController::class)
+        ->only([
+            'index',
+            'store',
+            'update',
+            'destroy',
+        ]);
+
 
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout');
