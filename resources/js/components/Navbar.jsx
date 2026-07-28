@@ -41,6 +41,12 @@ export default function Navbar() {
                     >
                         Membership
                     </Link>
+                    <Link
+                        href="/profile"
+                        className="text-neutral-700 transition hover:text-black"
+                    >
+                        Profile
+                    </Link>
 
                     <Link
                         href="/logout"
