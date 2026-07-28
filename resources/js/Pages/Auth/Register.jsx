@@ -13,7 +13,7 @@ export default function Register() {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route("register"), {
+        post("/register", {
             onFinish: () => reset("password", "password_confirmation"),
         });
     };
@@ -23,9 +23,7 @@ export default function Register() {
             <Head title="Register" />
 
             <div className="flex min-h-screen items-center justify-center bg-white px-6">
-
                 <div className="w-full max-w-md">
-
                     <h1 className="text-3xl font-bold text-black">
                         Create Account
                     </h1>
@@ -34,10 +32,7 @@ export default function Register() {
                         Create your account to continue.
                     </p>
 
-                    <form
-                        onSubmit={submit}
-                        className="mt-8 space-y-5"
-                    >
+                    <form onSubmit={submit} className="mt-8 space-y-5">
                         <Input
                             label="Full Name"
                             name="name"
@@ -45,9 +40,7 @@ export default function Register() {
                             value={data.name}
                             error={errors.name}
                             placeholder="John Doe"
-                            onChange={(e) =>
-                                setData("name", e.target.value)
-                            }
+                            onChange={(e) => setData("name", e.target.value)}
                         />
 
                         <Input
@@ -57,9 +50,7 @@ export default function Register() {
                             value={data.email}
                             error={errors.email}
                             placeholder="john@example.com"
-                            onChange={(e) =>
-                                setData("email", e.target.value)
-                            }
+                            onChange={(e) => setData("email", e.target.value)}
                         />
 
                         <Input
@@ -82,10 +73,7 @@ export default function Register() {
                             error={errors.password_confirmation}
                             placeholder="••••••••"
                             onChange={(e) =>
-                                setData(
-                                    "password_confirmation",
-                                    e.target.value
-                                )
+                                setData("password_confirmation", e.target.value)
                             }
                         />
 
@@ -102,7 +90,6 @@ export default function Register() {
 
                     <div className="mt-6 text-center text-sm text-neutral-500">
                         Already have an account?
-
                         <Link
                             href="/login"
                             className="ml-1 font-medium text-black hover:underline"
@@ -110,9 +97,7 @@ export default function Register() {
                             Login
                         </Link>
                     </div>
-
                 </div>
-
             </div>
         </>
     );
